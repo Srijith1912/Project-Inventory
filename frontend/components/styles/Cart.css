@@ -1,0 +1,43 @@
+.inputcart{
+  border: 0px;
+  margin-left: 10px;
+}
+
+.li4{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.cartdel{
+  background-color: red;
+  border: 0px;
+  cursor: pointer;
+  padding: 4px;
+
+  margin-left: 10px;
+}
+
+.cartdel:hover{
+  background-color: rgb(132, 29, 29);
+}
+
+.cartdel:active{
+  background-color: rgb(106, 14, 14);
+}
+
+.confirm{
+  border: 0px;
+  background-color: lightgreen;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.confirm:hover{
+  background-color: rgb(48, 141, 48);
+}
+
+.confirm:active{
+  background-color: rgb(12, 77, 12);
+}
