@@ -33,6 +33,22 @@ A full-stack MERN application designed to help small-scale grocery shop owners m
 - Included receipt + total price in checkout response
 - Documented routes and session behavior
 
+Here’s a concise **Day 3** bullet-style addition to match your existing README format:
+
+---
+
+### ✅ **Day 2** – Frontend Integration & Admin Panel
+
+* Created frontend with React + Axios
+* Implemented 4 pages with React Router:
+  * `/admin` → Add, edit, delete inventory items
+  * `/` → Inventory view with “Add to Cart”
+  * `/cart` → Cart management + checkout
+  * `/orders` → View all past orders
+* Connected all pages to backend APIs
+* Added scoped CSS for buttons, forms, and layout (no external library)
+* Cart state lifted to `App.js` for global access
+
 ----
 
 ## 🔧 Setup Instructions
