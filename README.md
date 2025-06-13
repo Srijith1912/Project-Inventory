@@ -50,12 +50,3 @@ Here’s a concise **Day 3** bullet-style addition to match your existing README
 * Cart state lifted to `App.js` for global access
 
 ----
-
-## 🔧 Setup Instructions
-
-### Backend Setup
-1. Navigate to `/backend` folder:
-2. Create a `.env` file:
-   ```env
-   MONGO_URI=your_mongodb_connection_string
-   PORT=5000
