@@ -33,7 +33,7 @@ A full-stack MERN application designed to help small-scale grocery shop owners m
 - Included receipt + total price in checkout response
 - Documented routes and session behavior
 
----
+----
 
 ## 🔧 Setup Instructions
 
