@@ -1,0 +1,20 @@
+.body{
+  background-color: burlywood;
+  min-height: 100vh;
+  min-width: 100vh;
+  padding: 50px;
+}
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  background-color: brown;
+  padding: 10px 5px;
+}
+
+nav a{
+  padding-left: 100px;
+  padding-right: 100px;
+  color: white;
+}

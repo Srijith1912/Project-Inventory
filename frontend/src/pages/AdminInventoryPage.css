@@ -1,0 +1,61 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.adminForm{
+
+  border: 0px 2px;
+  padding: 4px 2px;
+}
+
+.button2{
+
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 4px;
+  margin-left: 10px;
+  background-color: lightgreen;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button2:hover{
+  background-color: rgb(59, 189, 59);
+}
+
+.button2:active{
+  background-color: rgb(25, 128, 25);
+}
+
+.button3{
+
+  border: 0px;
+  margin-right: 5px;
+  background-color: orange;
+  cursor: pointer;
+}
+
+.button3:hover{
+  background-color: rgb(154, 101, 3);
+}
+
+.button3:active{
+  background-color: rgb(108, 72, 5);
+}
+
+.button4{
+  border: 0px;
+  background-color: red;
+  cursor: pointer;
+}
+
+.button4:hover{
+  background-color: rgb(145, 0, 0);
+}
+
+.button4:active{
+  background-color: rgb(96, 3, 3);
+}
