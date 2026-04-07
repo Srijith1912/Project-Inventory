@@ -1,7 +1,7 @@
 .body{
   background-color: burlywood;
   min-height: 100vh;
-  min-width: 100vh;
+  min-width: 100vw;
   padding: 50px;
 }
 
