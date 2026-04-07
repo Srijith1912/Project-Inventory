@@ -1,0 +1,1 @@
+This is a MERN stack based JavaScript project focused on managing inventory stock resources for retail or wholesale store-keepers. This helps in reducing the manual strain of counting stock stock by hand and simplifies the process of storage.
