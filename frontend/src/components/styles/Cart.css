@@ -1,43 +1,98 @@
-.inputcart{
-  border: 0px;
-  margin-left: 10px;
+.cart-heading {
+  font-size: 1.1rem;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
 }
 
-.li4{
+.cart-empty {
+  text-align: center;
+  padding: 3rem 1.5rem;
+}
+
+.cart-empty-text {
+  color: var(--color-text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.cart-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+}
+
+.cart-item {
+  display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--color-border);
 }
 
-.cartdel{
-  background-color: red;
-  border: 0px;
-  cursor: pointer;
-  padding: 4px;
-
-  margin-left: 10px;
+.cart-item:last-child {
+  border-bottom: none;
 }
 
-.cartdel:hover{
-  background-color: rgb(132, 29, 29);
+.cart-item-info {
+  flex: 1;
+  min-width: 0;
 }
 
-.cartdel:active{
-  background-color: rgb(106, 14, 14);
+.cart-item-name {
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: 0.2rem;
 }
 
-.confirm{
-  border: 0px;
-  background-color: lightgreen;
-  padding: 5px;
-  cursor: pointer;
+.cart-item-price {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
 }
 
-.confirm:hover{
-  background-color: rgb(48, 141, 48);
+.cart-item-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
-.confirm:active{
-  background-color: rgb(12, 77, 12);
+.cart-qty {
+  width: 70px;
+  text-align: center;
+}
+
+.cart-item-line {
+  min-width: 70px;
+  text-align: right;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.cart-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  margin-top: 0.5rem;
+  border-top: 2px solid var(--color-border);
+  font-size: 1.1rem;
+}
+
+.cart-footer strong {
+  color: var(--color-primary);
+  font-size: 1.3rem;
+}
+
+@media (max-width: 560px) {
+  .cart-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cart-item-controls {
+    justify-content: space-between;
+  }
+  .cart-item-line {
+    min-width: auto;
+  }
 }

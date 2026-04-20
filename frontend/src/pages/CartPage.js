@@ -1,8 +1,10 @@
 import Cart from "../components/Cart";
 import Checkout from "../components/Checkout";
+import "./CartPage.css";
 
 function CartPage({ cartItems, setCartItems }) {
   const updateQuantity = (id, quantity) => {
+    if (!quantity || quantity < 1) return;
     setCartItems((prev) =>
       prev.map((item) => (item._id === id ? { ...item, quantity } : item))
     );
@@ -15,17 +17,22 @@ function CartPage({ cartItems, setCartItems }) {
   const clearCart = () => setCartItems([]);
 
   return (
-    <div class="container">
-      <h1>Your Shopping Cart</h1>
+    <section className="cart-page page-container">
+      <h1 className="page-title">Your Cart</h1>
 
-      <Cart
-        cartItems={cartItems}
-        updateQuantity={updateQuantity}
-        removeItem={removeItem}
-      />
-
-      <Checkout cartItems={cartItems} clearCart={clearCart} />
-    </div>
+      <div className="cart-layout">
+        <div className="cart-col">
+          <Cart
+            cartItems={cartItems}
+            updateQuantity={updateQuantity}
+            removeItem={removeItem}
+          />
+        </div>
+        <div className="cart-col cart-col-side">
+          <Checkout cartItems={cartItems} clearCart={clearCart} />
+        </div>
+      </div>
+    </section>
   );
 }
 

@@ -1,0 +1,25 @@
+.cart-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.cart-col-side {
+  position: sticky;
+  top: calc(var(--header-height) + 1.5rem);
+}
+
+@media (max-width: 860px) {
+  .cart-layout {
+    grid-template-columns: 1fr;
+  }
+  .cart-col-side {
+    position: static;
+  }
+}

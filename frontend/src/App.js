@@ -1,12 +1,47 @@
 import { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import ItemList from "./components/ItemList";
 import AdminInventoryPage from "./pages/AdminInventoryPage";
 import OrderHistory from "./components/OrderHistory";
 import CartPage from "./pages/CartPage";
+import Header from "./components/Header";
+import AdminLogin from "./components/AdminLogin";
+import GuestSignIn from "./components/GuestSignIn";
+import { AuthProvider, useAuth } from "./context/AuthContext";
+import { GuestProvider, useGuest } from "./context/GuestContext";
 import "./App.css";
 
-function App() {
+function AdminRoute() {
+  const { isAdmin } = useAuth();
+  return isAdmin ? <AdminInventoryPage /> : <AdminLogin />;
+}
+
+function GuestGate({ title, subtitle, children }) {
+  const { isSignedIn } = useGuest();
+  return isSignedIn ? (
+    children
+  ) : (
+    <GuestSignIn title={title} subtitle={subtitle} />
+  );
+}
+
+function SignInRoute() {
+  const { isSignedIn } = useGuest();
+  if (isSignedIn) return <Navigate to="/" replace />;
+  return (
+    <GuestSignIn
+      title="Sign in as guest"
+      subtitle="Pick any ID to keep your orders separate. No password required."
+    />
+  );
+}
+
+function AppShell() {
   const [cartItems, setCartItems] = useState([]);
 
   const handleAddToCart = (itemToAdd) => {
@@ -23,29 +58,51 @@ function App() {
     });
   };
 
+  const cartCount = cartItems.reduce((n, item) => n + item.quantity, 0);
+
   return (
-    <div class="body">
-      <Router>
-        <nav class="links">
-          <Link to="/admin">Admin</Link><Link to="/">Inventory</Link>  
-          <Link to="/cart">Cart</Link> <Link to="/orders">Orders</Link>
-        </nav>
+    <div className="app">
+      <Header cartCount={cartCount} />
+      <main className="app-main">
         <Routes>
           <Route
             path="/"
             element={<ItemList onAddToCart={handleAddToCart} />}
           />
-          <Route path="/admin" element={<AdminInventoryPage />} />
+          <Route path="/admin" element={<AdminRoute />} />
           <Route
             path="/cart"
             element={
               <CartPage cartItems={cartItems} setCartItems={setCartItems} />
             }
           />
-          <Route path="/orders" element={<OrderHistory />} />
+          <Route
+            path="/orders"
+            element={
+              <GuestGate
+                title="Sign in to view orders"
+                subtitle="Enter your guest ID to see your order history. Use the same ID on any device to find the same orders."
+              >
+                <OrderHistory />
+              </GuestGate>
+            }
+          />
+          <Route path="/signin" element={<SignInRoute />} />
         </Routes>
-      </Router>
+      </main>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AuthProvider>
+        <GuestProvider>
+          <AppShell />
+        </GuestProvider>
+      </AuthProvider>
+    </Router>
   );
 }
 
